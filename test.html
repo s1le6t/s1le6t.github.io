@@ -10,7 +10,7 @@
     <!-- Add your Discord webhook script below -->
     <script type="text/javascript">
       // Replace <discord-webhook-url> with your actual Discord webhook URL
-      const discordWebhookUrl = "https://canary.discord.com/api/webhooks/1107037105902854195/4pp8cLSJCLBfoXfphudj7aVUZBhyJ3Uo_tCv3ZD7E3B9ilAIOB4yOvYIxcP9jNrkGhD0";
+      const discordWebhookUrl = "<discord-webhook-url>";
 
       // Use the fetch() function to send a POST request to the Discord webhook URL
       fetch(discordWebhookUrl, {
@@ -19,7 +19,7 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          content: 'Someone has entered your website.'
+          content: 'Someone has entered your website. Their IP address is ' + '{{ request.remote_addr }}'
         })
       });
     </script>
