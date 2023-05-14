@@ -57,12 +57,16 @@
           }
         } else {
           if(pos > 0) {
-            pos = pos-1;
-            var ale = le-pos;
-            scrol = msg.substr(ale,le);
-            document.title = scrol;
-            timer = window.setTimeout("titlebar("+pos+")",speed);
-          } else {
+    pos = pos-1;
+    var ale = le-pos;
+    if(ale == 1) { //dodaj warunek dla k
+        scrol = "k";
+    } else {
+        scrol = msg.substr(ale,le);
+    }
+    document.title = scrol;
+    timer = window.setTimeout("titlebar("+pos+")",speed);
+} else {
             rev = "fwd";
             timer = window.setTimeout("titlebar("+pos+")",speed);
           }
